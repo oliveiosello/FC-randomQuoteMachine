@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <script>
+      const genQuote = () => {
+        let index = randomize(quotes.length);
+        document.getElementById('text').innerText = quotes[index].quote;
+        document.getElementById('author').innerText = quotes[index].author;
+      };
+
+      const init = () => {
+        genQuote();
+      };
+
+      const quotes = [
+        { quote: 'You cannot control your own population by force, but it can be distracted by consumption.', author: 'Noam Chomsky' },
+        { quote: 'The threat today is not passivity, but pseudo-activity, the urge to "be active", to "participate", to mask the Nothingness of what goes on.', author: 'Slavoj Zizek' },
+        { quote: 'All mortal greatness is but disease.', author: 'Herman Melville' },
+      ];
+
+      const randomize = (max) => {
+        return Math.floor(Math.random() * Math.floor(max));
+      };
+      window.onload = init;
+    </script>
+    <style>
+      #text {
+        font-family: "Palatino Linotype";
+        font-size: 90px;
+        font-weight: bold;
+        color: orange;
+        text-align: center;
+        width: 70%;
+        padding: 35px;
+      }
+
+      #author {
+        font-family: "Arial";
+        font-size: 30px;
+        font-weight: lighter;
+        color: grey;
+        text-align: right;
+        display: block;
+        width: 100%;
+      }
+
+      #new-quote {
+        padding: 1px 5px;
+        cursor: pointer;
+        color: grey;
+        font-weight: bold;
+        border-radius: 3px;
+        border: none;
+      }
+
+      #tweet-quote {
+        padding: 1px 5px;
+        cursor: pointer;
+        color: grey;
+        font-weight: bold;
+        border-radius: 3px;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <div id="quote-box">
+      <div id="text">Random Quote</div>
+      <div id="author">author</div>
+      <button id="new-quote" onClick="genQuote();">next</button>
+      <a
+        id="tweet-quote"
+        target="blank"
+        href="twitter.com/intent/tweet"
+        >tweet</a
+      >
+    </div>
+  </body>
+</html>
